@@ -1,0 +1,22 @@
+<nav>
+	<a href="./">Balsuoti</a>
+	<a class="active" href="./galerija">Galerija</a>
+</nav>
+
+{{#if galerija}}
+
+	<ul>
+
+		{{#each galerija}}
+
+		<li>
+			<img src="photos/{{name}}" alt="Kačiukas" width="100%" height="100%" />
+			<p class="up">👍 {{this.likes}}</p>
+			<p class="down">👎 {{this.dislikes}}</p>
+		</li>
+
+		{{/each}}
+
+	</ul>
+
+{{/if}}

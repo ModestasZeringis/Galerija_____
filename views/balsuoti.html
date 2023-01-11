@@ -1,0 +1,62 @@
+<nav>
+		<a class="active" href="./">Balsuoti</a>
+	<a href="./galerija">Galerija</a>
+</nav>
+
+{{#if photo}}
+
+	<img src="photos/{{photo.name}}" width="320" height="350" alt="Cat Picture" />
+
+	<div class="button-holder">
+		<form action="./cute" method="post">
+			<input type="hidden" name="photo" value="{{photo.name}}" />
+			<input type="submit" value="👍 Patinka!" />
+		</form>
+		<form action="./notcute" method="post">
+			<input type="hidden" name="photo" value="{{photo.name}}" />
+			<input type="submit" value="👎 Nepatinka" />
+		</form>
+	
+		
+{{#if standings}}
+
+<ul>
+
+	{{#each standings}}
+
+	<li>
+		<img src="photos/{{name}}" alt="Kačiukas" />
+		<p class="up">{{this.likes}}</p>
+		<p class="down">{{this.dislikes}}</p>
+		
+{{#if standings}}
+
+<ul>
+
+	{{#each standings}}
+
+	<li>
+		<img src="photos/{{name}}" alt="Kačiukas" />
+		<p class="up">{{this.likes}}</p>
+		<p class="down">{{this.dislikes}}</p>
+	</li>
+
+	{{/each}}
+
+</ul>
+
+{{/if}}
+	</li>
+
+	{{/each}}
+
+</ul>
+
+{{/if}}
+	</div>
+
+{{else}}
+
+	<h3>Daugiau nuotraukų nėra kurioms yra reikalingas balsas <a href="./galerija">Reitingai</a>.</h3>
+
+{{/if}}
